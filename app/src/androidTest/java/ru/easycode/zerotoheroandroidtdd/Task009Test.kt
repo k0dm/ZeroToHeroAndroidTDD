@@ -25,7 +25,7 @@ import org.junit.runner.RunWith
 class Task009Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task9Activity::class.java)
 
     @Test
     fun test_remove_textview() {
