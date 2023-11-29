@@ -20,7 +20,7 @@ import org.junit.runner.RunWith
 class Task006Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task6Activity::class.java)
 
     @Test
     fun test_change_text_runtime() {
