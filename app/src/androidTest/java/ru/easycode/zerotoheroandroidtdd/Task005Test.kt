@@ -23,7 +23,7 @@ import org.junit.runner.RunWith
 class Task005Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task5Activity::class.java)
 
     @Test
     fun test_button_position() {
