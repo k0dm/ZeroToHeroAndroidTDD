@@ -20,7 +20,7 @@ import org.junit.runner.RunWith
 class Task003Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task3Activity::class.java)
 
     @Test
     fun test_change_parent() {
