@@ -24,7 +24,7 @@ import org.junit.runner.RunWith
 class Task007Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task7Activity::class.java)
 
     @Test
     fun test_keep_text() {
