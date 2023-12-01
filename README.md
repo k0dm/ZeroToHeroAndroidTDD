@@ -7,23 +7,23 @@ Then just checkout branches, solve the tasks, run ui tests and unit tests to che
 
 <b>Season 1: Process, Activity, MVVM, LiveData, Retrofit2</b>
 
-task/001-change-text solution on YouTube https://www.youtube.com/watch?v=EK2G_XV25YQ
+**task/001-change-text solved** solution on YouTube https://www.youtube.com/watch?v=EK2G_XV25YQ
 
-task/002-add-id solution on YouTube https://www.youtube.com/watch?v=TrSa83OsYV8
+**task/002-add-id solved** solution on YouTube https://www.youtube.com/watch?v=TrSa83OsYV8
 
-task/003-change-parent solution on YouTube https://www.youtube.com/watch?v=4N-59HERAq0
+**task/003-change-parent solved** solution on YouTube https://www.youtube.com/watch?v=4N-59HERAq0
 
-task/004-add-button solution on YouTube https://www.youtube.com/watch?v=mFzelplwHKs
+**task/004-add-button solved** solution on YouTube https://www.youtube.com/watch?v=mFzelplwHKs
 
-task/005-button-position solution on YouTube https://www.youtube.com/watch?v=Aqey3TvWJxk
+**task/005-button-position solved** solution on YouTube https://www.youtube.com/watch?v=Aqey3TvWJxk
 
-task/006-change-text-runtime solution on YouTube https://www.youtube.com/watch?v=80vHNKpcOZA
+**task/006-change-text-runtime solved** solution on YouTube https://www.youtube.com/watch?v=80vHNKpcOZA
 
-task/007-keep-text solution on YouTube https://www.youtube.com/watch?v=15RtLNLbnUk
+**task/007-keep-text solved** solution on YouTube https://www.youtube.com/watch?v=15RtLNLbnUk
 
-task/008-hide-text solution on YouTube https://www.youtube.com/watch?v=c1Mh6J2FwTY
+**task/008-hide-text solved** solution on YouTube https://www.youtube.com/watch?v=c1Mh6J2FwTY
 
-task/009-remove-textview solution on YouTube https://youtu.be/vGG9AjW0pFU
+**task/009-remove-textview solved** solution on YouTube https://youtu.be/vGG9AjW0pFU
 
 task/010-disable-button solution on YouTube https://www.youtube.com/watch?v=IzZ2_3njzx0
 
