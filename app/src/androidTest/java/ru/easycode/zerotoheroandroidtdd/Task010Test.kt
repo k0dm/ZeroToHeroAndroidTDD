@@ -26,7 +26,7 @@ import org.junit.runner.RunWith
 class Task010Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task10Activity::class.java)
 
     @Test
     fun test_disable_button() {
