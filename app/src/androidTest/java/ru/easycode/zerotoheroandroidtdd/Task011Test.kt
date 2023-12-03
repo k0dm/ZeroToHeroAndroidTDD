@@ -28,7 +28,7 @@ import org.junit.runner.RunWith
 class Task011Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task11Activity::class.java)
 
     @Test
     fun test_increment() {
