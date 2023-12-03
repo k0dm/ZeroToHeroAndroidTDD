@@ -20,6 +20,7 @@ import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.task12.Task12Activity
 
 /**
  * Please also check out unit test
@@ -29,7 +30,7 @@ import org.junit.runner.RunWith
 class Task012Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task12Activity::class.java)
 
     @Test
     fun test_increment() {
