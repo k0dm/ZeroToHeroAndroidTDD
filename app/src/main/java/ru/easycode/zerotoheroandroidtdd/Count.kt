@@ -37,8 +37,4 @@ interface Count {
             else -> UiState.Base(number)
         }
     }
-
-
 }
-
-
