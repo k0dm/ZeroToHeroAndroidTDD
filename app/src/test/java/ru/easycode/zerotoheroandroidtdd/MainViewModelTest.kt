@@ -10,6 +10,12 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task18.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.task18.LiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task18.MainViewModel
+import ru.easycode.zerotoheroandroidtdd.task18.data.Repository
+import ru.easycode.zerotoheroandroidtdd.task18.data.SimpleResponse
+import ru.easycode.zerotoheroandroidtdd.task18.UiState
 
 /**
  * Please also check out the ui test

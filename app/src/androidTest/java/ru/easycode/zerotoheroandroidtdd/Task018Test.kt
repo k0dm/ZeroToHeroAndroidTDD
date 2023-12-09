@@ -32,7 +32,7 @@ import org.junit.runner.RunWith
 class Task018Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task18Activity::class.java)
 
     @Test
     fun test_mvvm_process_recreate() {
