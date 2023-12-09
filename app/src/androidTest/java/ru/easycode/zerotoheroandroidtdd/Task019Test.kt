@@ -32,7 +32,7 @@ import org.junit.runner.RunWith
 class Task019Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task19Activity::class.java)
 
     /**
      * For this test please turn on the internet connection
