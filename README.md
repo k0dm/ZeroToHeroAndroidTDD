@@ -25,21 +25,21 @@ Then just checkout branches, solve the tasks, run ui tests and unit tests to che
 
 **task/009-remove-textview solved** solution on YouTube https://youtu.be/vGG9AjW0pFU
 
-task/010-disable-button solution on YouTube https://www.youtube.com/watch?v=IzZ2_3njzx0
+**task/010-disable-button solved** solution on YouTube https://www.youtube.com/watch?v=IzZ2_3njzx0
 
-task/011-increment solution on YouTube https://www.youtube.com/watch?v=OWrgyy0m3t4
+**task/011-increment solved** solution on YouTube https://www.youtube.com/watch?v=OWrgyy0m3t4
 
-task/012-increment-max solution on YouTube https://youtu.be/H-QDGKEo_js
+**task/012-increment-max solved** solution on YouTube https://youtu.be/H-QDGKEo_js
 
-task/013-min-max solution on YouTube https://www.youtube.com/watch?v=wik_LmCwn7I
+**task/013-min-max solved** solution on YouTube https://www.youtube.com/watch?v=wik_LmCwn7I
 
-task/014-progress solution on YouTube https://www.youtube.com/watch?v=KqXu5IE7kkU
+**task/014-progress solved** solution on YouTube https://www.youtube.com/watch?v=KqXu5IE7kkU
 
-task/015-progress-mvvm solution on YouTube https://youtu.be/Jr1bFjhtMio
+**task/015-progress-mvvm solved** solution on YouTube https://youtu.be/Jr1bFjhtMio
 
-task/016-progress-mvvm-recreate solution on YouTube https://www.youtube.com/watch?v=OzN2ygeUQes
+**task/016-progress-mvvm-recreate solved** solution on YouTube https://www.youtube.com/watch?v=OzN2ygeUQes
 
-task/017-mvvm-process-recrerate solution on YouTube https://www.youtube.com/watch?v=qywpyz7k1TY
+**task/017-mvvm-process-recrerat solvede** solution on YouTube https://www.youtube.com/watch?v=qywpyz7k1TY
 
 task/018-clouddatasource soluton on YouTube https://youtu.be/0ru42NoOF8o
 
