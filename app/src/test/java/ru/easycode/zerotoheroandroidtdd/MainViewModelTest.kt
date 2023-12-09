@@ -10,14 +10,15 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.task16.LiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.task16.MainViewModel
-import ru.easycode.zerotoheroandroidtdd.task16.Repository
-import ru.easycode.zerotoheroandroidtdd.task16.UiState
+import ru.easycode.zerotoheroandroidtdd.task17.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.task17.LiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task17.MainViewModel
+import ru.easycode.zerotoheroandroidtdd.task17.Repository
+import ru.easycode.zerotoheroandroidtdd.task17.UiState
 
 /**
  * Please also check out the ui test
- * @see ru.easycode.zerotoheroandroidtdd.Task016Test
+ * @see ru.easycode.zerotoheroandroidtdd.Task017Test
  */
 class MainViewModelTest {
 
@@ -25,6 +26,7 @@ class MainViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(UnconfinedTestDispatcher())
+        initialize()
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -33,17 +35,50 @@ class MainViewModelTest {
         Dispatchers.resetMain()
     }
 
-    @Test
-    fun test() {
-        val repository = FakeRepository.Base()
-        val liveDataWrapper = FakeLiveDataWrapper.Base()
-        val viewModel = MainViewModel(
+    private lateinit var repository: FakeRepository
+    private lateinit var liveDataWrapper: FakeLiveDataWrapper
+    private lateinit var viewModel: MainViewModel
+
+    fun initialize() {
+        repository = FakeRepository.Base()
+        liveDataWrapper = FakeLiveDataWrapper.Base()
+        viewModel = MainViewModel(
             liveDataWrapper = liveDataWrapper,
             repository = repository
         )
+    }
+
+    @Test
+    fun test() {
         viewModel.load()
         liveDataWrapper.checkUpdateCalls(listOf(UiState.ShowProgress, UiState.ShowData))
         repository.checkLoadCalledTimes(1)
+
+        val bundleWrapper: BundleWrapper.Mutable = FakeBundleWrapper.Base()
+        val bundleWrapperSave: BundleWrapper.Save = bundleWrapper
+        val bundleWrapperRestore: BundleWrapper.Restore = bundleWrapper
+
+        viewModel.save(bundleWrapper = bundleWrapperSave)
+
+        initialize()
+
+        viewModel.restore(bundleWrapper = bundleWrapperRestore)
+        liveDataWrapper.checkUpdateCalls(listOf(UiState.ShowData))
+        repository.checkLoadCalledTimes(0)
+    }
+}
+
+private interface FakeBundleWrapper : BundleWrapper.Mutable {
+
+    class Base : FakeBundleWrapper {
+
+        private var uiState: UiState? = null
+
+        override fun save(uiState: UiState) {
+            this.uiState = uiState
+        }
+
+        override fun restore(): UiState = uiState!!
     }
 }
 
@@ -57,6 +92,10 @@ private interface FakeLiveDataWrapper : LiveDataWrapper {
 
         override fun checkUpdateCalls(expected: List<UiState>) {
             assertEquals(expected, actualCallsList)
+        }
+
+        override fun save(bundleWrapper: BundleWrapper.Save) {
+            bundleWrapper.save(actualCallsList.last())
         }
 
         override fun update(value: UiState) {
