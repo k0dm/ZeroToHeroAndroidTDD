@@ -24,18 +24,14 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Please also check out the unit test
- * @see ru.easycode.zerotoheroandroidtdd.MainViewModelTest
- */
 @RunWith(AndroidJUnit4::class)
-class Task018Test {
+class Task014Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(Task18Activity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task14Activity::class.java)
 
     @Test
-    fun test_mvvm_process_recreate() {
+    fun test_progress() {
         onView(
             allOf(
                 withParent(isAssignableFrom(LinearLayout::class.java)),
@@ -50,8 +46,7 @@ class Task018Test {
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout)),
                 isAssignableFrom(TextView::class.java),
-                withId(R.id.titleTextView),
-                withText("Hello World!")
+                withId(R.id.titleTextView)
             )
         ).check(matches(not(isDisplayed())))
 
@@ -68,14 +63,8 @@ class Task018Test {
         onView(withId(R.id.actionButton)).check(matches(isNotEnabled()))
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
 
-        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 5000))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
-        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
+        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 3500))
 
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
         onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
         onView(withId(R.id.actionButton)).check(matches(isEnabled()))
     }
