@@ -29,16 +29,13 @@ import org.junit.runner.RunWith
  * @see ru.easycode.zerotoheroandroidtdd.MainViewModelTest
  */
 @RunWith(AndroidJUnit4::class)
-class Task019Test {
+class Task018Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(Task19Activity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task18Activity::class.java)
 
-    /**
-     * For this test please turn on the internet connection
-     */
     @Test
-    fun test_success() {
+    fun test_mvvm_process_recreate() {
         onView(
             allOf(
                 withParent(isAssignableFrom(LinearLayout::class.java)),
@@ -81,17 +78,5 @@ class Task019Test {
         onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
         onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
         onView(withId(R.id.actionButton)).check(matches(isEnabled()))
-    }
-
-    /**
-     * For this test please turn off the internet connection
-     */
-    @Test
-    fun test_error() {
-        onView(withId(R.id.actionButton)).perform(click())
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
-
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
     }
 }

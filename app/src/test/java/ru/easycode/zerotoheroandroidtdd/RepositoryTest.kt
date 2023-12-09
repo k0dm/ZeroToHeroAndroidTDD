@@ -1,81 +1,97 @@
 package ru.easycode.zerotoheroandroidtdd
 
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isEnabled
+import androidx.test.espresso.matcher.ViewMatchers.isNotEnabled
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withParent
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
+import org.junit.Assert.*
+import org.junit.Rule
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.task19.LoadResult
-import ru.easycode.zerotoheroandroidtdd.task19.data.Repository
-import ru.easycode.zerotoheroandroidtdd.task19.data.SimpleResponse
-import ru.easycode.zerotoheroandroidtdd.task19.data.SimpleService
-import java.net.UnknownHostException
+import org.junit.runner.RunWith
 
-class RepositoryTest {
+/**
+ * Please also check out the unit test
+ * @see ru.easycode.zerotoheroandroidtdd.MainViewModelTest
+ */
+@RunWith(AndroidJUnit4::class)
+class Task019Test {
 
+    @get:Rule
+    var activityScenarioRule = ActivityScenarioRule(Task19Activity::class.java)
+
+    /**
+     * For this test please turn on the internet connection
+     */
     @Test
-    fun test_success() = runBlocking {
-        val service = FakeService.Base()
-        service.expectSuccess()
-        val repository = Repository.Base(service = service, url = "a")
-        val actual = repository.load()
-        val expected = LoadResult.Success(data = SimpleResponse(text = "A"))
-        assertEquals(expected, actual)
+    fun test_success() {
+        onView(
+            allOf(
+                withParent(isAssignableFrom(LinearLayout::class.java)),
+                withParent(withId(R.id.rootLayout)),
+                isAssignableFrom(ProgressBar::class.java),
+                withId(R.id.progressBar)
+            )
+        ).check(matches(not(isDisplayed())))
+
+        onView(
+            allOf(
+                withParent(isAssignableFrom(LinearLayout::class.java)),
+                withParent(withId(R.id.rootLayout)),
+                isAssignableFrom(TextView::class.java),
+                withId(R.id.titleTextView),
+                withText("Hello World!")
+            )
+        ).check(matches(not(isDisplayed())))
+
+        onView(
+            allOf(
+                withParent(isAssignableFrom(LinearLayout::class.java)),
+                withParent(withId(R.id.rootLayout)),
+                isAssignableFrom(Button::class.java),
+                withId(R.id.actionButton),
+                withText("load")
+            )
+        ).perform(click())
+
+        onView(withId(R.id.actionButton)).check(matches(isNotEnabled()))
+        onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
+
+        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 5000))
+        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
+        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
+
+        activityScenarioRule.scenario.recreate()
+        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
+        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
+        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
     }
 
+    /**
+     * For this test please turn off the internet connection
+     */
     @Test
-    fun test_no_connection() = runBlocking {
-        val service = FakeService.Base()
-        service.expectException(UnknownHostException())
+    fun test_error() {
+        onView(withId(R.id.actionButton)).perform(click())
+        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
 
-        val repository = Repository.Base(service = service, url = "a")
-        val actual = repository.load()
-        val expected = LoadResult.Error(noConnection = true)
-        assertEquals(expected, actual)
-    }
-
-    @Test
-    fun test_other_exception() = runBlocking {
-        val service = FakeService.Base()
-        service.expectException(IllegalStateException())
-
-        val repository = Repository.Base(service = service, url = "a")
-        val actual = repository.load()
-        val expected = LoadResult.Error(noConnection = false)
-        assertEquals(expected, actual)
-    }
-}
-
-private interface FakeService : SimpleService {
-
-    fun expectSuccess()
-
-    fun expectException(exception: Exception)
-
-    class Base : FakeService {
-
-        private val map = mutableMapOf<String, SimpleResponse>()
-
-        init {
-            map["a"] = SimpleResponse(text = "A")
-            map["b"] = SimpleResponse(text = "B")
-        }
-
-        private var expectSuccessResult: Boolean = false
-
-        private lateinit var exceptionToThrow: Exception
-
-        override fun expectSuccess() {
-            expectSuccessResult = true
-        }
-
-        override fun expectException(exception: Exception) {
-            exceptionToThrow = exception
-        }
-
-        override suspend fun fetch(url: String): SimpleResponse {
-            if (expectSuccessResult)
-                return map[url]!!
-            else
-                throw exceptionToThrow
-        }
+        activityScenarioRule.scenario.recreate()
+        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
     }
 }

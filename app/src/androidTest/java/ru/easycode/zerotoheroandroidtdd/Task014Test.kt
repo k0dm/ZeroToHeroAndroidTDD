@@ -24,21 +24,14 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Please also check out the unit test
- * @see ru.easycode.zerotoheroandroidtdd.MainViewModelTest
- */
 @RunWith(AndroidJUnit4::class)
-class Task019Test {
+class Task014Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(Task19Activity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task14Activity::class.java)
 
-    /**
-     * For this test please turn on the internet connection
-     */
     @Test
-    fun test_success() {
+    fun test_progress() {
         onView(
             allOf(
                 withParent(isAssignableFrom(LinearLayout::class.java)),
@@ -53,8 +46,7 @@ class Task019Test {
                 withParent(isAssignableFrom(LinearLayout::class.java)),
                 withParent(withId(R.id.rootLayout)),
                 isAssignableFrom(TextView::class.java),
-                withId(R.id.titleTextView),
-                withText("Hello World!")
+                withId(R.id.titleTextView)
             )
         ).check(matches(not(isDisplayed())))
 
@@ -71,27 +63,9 @@ class Task019Test {
         onView(withId(R.id.actionButton)).check(matches(isNotEnabled()))
         onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
 
-        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 5000))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
+        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 3500))
+
         onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
         onView(withId(R.id.actionButton)).check(matches(isEnabled()))
-
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
-        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
-    }
-
-    /**
-     * For this test please turn off the internet connection
-     */
-    @Test
-    fun test_error() {
-        onView(withId(R.id.actionButton)).perform(click())
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
-
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
     }
 }
