@@ -27,7 +27,7 @@ import org.junit.runner.RunWith
 class Task021Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task21Activity::class.java)
 
     @Test
     fun test_watch_input() {
