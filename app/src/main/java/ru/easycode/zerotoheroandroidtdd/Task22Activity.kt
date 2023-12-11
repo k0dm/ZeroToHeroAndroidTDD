@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.core.view.allViews
+import androidx.core.view.children
 import org.w3c.dom.Text
 import ru.easycode.zerotoheroandroidtdd.databinding.ActivityTask22Binding
 import ru.easycode.zerotoheroandroidtdd.task22.App
@@ -14,7 +15,6 @@ class Task22Activity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTask22Binding
     private lateinit var  mainViewModel: MainViewModel
-    private val contentViewsList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,6 @@ class Task22Activity : AppCompatActivity() {
                         text = inputText
                     }
                     contentLayout.addView(tv)
-                    contentViewsList.add(inputText)
                 }
             }
 
@@ -42,22 +41,14 @@ class Task22Activity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        mainViewModel.saveContentViews(contentViewsList)
-
+        mainViewModel.saveContentViews(binding.contentLayout.children.toList())
+        binding.contentLayout.removeAllViews()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        binding.contentLayout.removeAllViews()
-        val restoredViews = mainViewModel.restoreViews().toMutableList()
-
-
-        restoredViews.forEach {
-            val tv = TextView(this@Task22Activity).apply {
-                text = it
-            }
-            binding.contentLayout.addView(tv)
+        mainViewModel.restoreViews().forEach {
+            binding.contentLayout.addView(it)
         }
-
     }
 }

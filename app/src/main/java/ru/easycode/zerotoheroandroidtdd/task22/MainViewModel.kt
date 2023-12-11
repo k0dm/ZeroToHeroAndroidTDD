@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-    private var cachedContentTextViews = listOf<String>()
-    fun saveContentViews(list: List<String>) {
-        cachedContentTextViews = list
+    private var cachedContentViews = listOf<View>()
+    fun saveContentViews(list: List<View>) {
+        cachedContentViews = list
     }
 
-    fun restoreViews() : List<String> = cachedContentTextViews
+    fun restoreViews() : List<View> = cachedContentViews
 }
