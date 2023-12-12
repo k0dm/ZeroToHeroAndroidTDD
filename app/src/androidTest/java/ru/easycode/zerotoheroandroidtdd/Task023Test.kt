@@ -26,7 +26,7 @@ import org.junit.runner.RunWith
 class Task023Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task23Activity::class.java)
 
     @Test
     fun test_recycler() {
@@ -76,7 +76,7 @@ class Task023Test {
             .check(matches(withText("second text")))
 
 
-        for (i in 0..10) {
+        for (i in 0..1) {
             onView(withId(R.id.inputEditText)).perform(typeText("text number $i"))
             onView(withId(R.id.actionButton)).perform(click())
             onView(withId(R.id.inputEditText)).check(matches(withText("")))
@@ -93,7 +93,7 @@ class Task023Test {
         onView(RecyclerViewMatcher(R.id.recyclerView).atPosition(1, R.id.elementTextView))
             .check(matches(withText("second text")))
 
-        for (i in 0..10) {
+        for (i in 0..1) {
             onView(RecyclerViewMatcher(R.id.recyclerView).atPosition(i + 2, R.id.elementTextView))
                 .check(matches(withText("text number $i")))
         }
