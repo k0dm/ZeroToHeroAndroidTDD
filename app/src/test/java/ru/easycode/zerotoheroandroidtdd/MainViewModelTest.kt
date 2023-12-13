@@ -1,97 +1,84 @@
 package ru.easycode.zerotoheroandroidtdd
 
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.isEnabled
-import androidx.test.espresso.matcher.ViewMatchers.isNotEnabled
-import androidx.test.espresso.matcher.ViewMatchers.isRoot
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withParent
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.not
-import org.junit.Assert.*
-import org.junit.Rule
+import androidx.lifecycle.LiveData
+import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.task24.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.task24.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task24.MainViewModel
 
-/**
- * Please also check out the unit test
- * @see ru.easycode.zerotoheroandroidtdd.MainViewModelTest
- */
-@RunWith(AndroidJUnit4::class)
-class Task019Test {
+class MainViewModelTest {
 
-    @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(Task19Activity::class.java)
+    private lateinit var viewModel: MainViewModel
+    private lateinit var listLiveDataWrapper: FakeListLiveDataWrapper
 
-    /**
-     * For this test please turn on the internet connection
-     */
-    @Test
-    fun test_success() {
-        onView(
-            allOf(
-                withParent(isAssignableFrom(LinearLayout::class.java)),
-                withParent(withId(R.id.rootLayout)),
-                isAssignableFrom(ProgressBar::class.java),
-                withId(R.id.progressBar)
-            )
-        ).check(matches(not(isDisplayed())))
-
-        onView(
-            allOf(
-                withParent(isAssignableFrom(LinearLayout::class.java)),
-                withParent(withId(R.id.rootLayout)),
-                isAssignableFrom(TextView::class.java),
-                withId(R.id.titleTextView),
-                withText("Hello World!")
-            )
-        ).check(matches(not(isDisplayed())))
-
-        onView(
-            allOf(
-                withParent(isAssignableFrom(LinearLayout::class.java)),
-                withParent(withId(R.id.rootLayout)),
-                isAssignableFrom(Button::class.java),
-                withId(R.id.actionButton),
-                withText("load")
-            )
-        ).perform(click())
-
-        onView(withId(R.id.actionButton)).check(matches(isNotEnabled()))
-        onView(withId(R.id.progressBar)).check(matches(isDisplayed()))
-
-        onView(isRoot()).perform(waitTillDisplayed(R.id.titleTextView, 5000))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
-        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
-
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
-        onView(withId(R.id.titleTextView)).check(matches(withText("Hello World From Web!")))
-        onView(withId(R.id.progressBar)).check(matches(not(isDisplayed())))
-        onView(withId(R.id.actionButton)).check(matches(isEnabled()))
+    @Before
+    fun init() {
+        listLiveDataWrapper = FakeListLiveDataWrapper.Base()
+        viewModel = MainViewModel(listLiveDataWrapper = listLiveDataWrapper)
     }
 
-    /**
-     * For this test please turn off the internet connection
-     */
     @Test
-    fun test_error() {
-        onView(withId(R.id.actionButton)).perform(click())
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
+    fun test() {
+        viewModel.add(text = "first")
+        listLiveDataWrapper.checkListSame(listOf("first"))
 
-        activityScenarioRule.scenario.recreate()
-        onView(withId(R.id.titleTextView)).check(matches(withText("No internet connection")))
+        viewModel.add(text = "second")
+        listLiveDataWrapper.checkListSame(listOf("first", "second"))
+
+        val bundleWrapper: BundleWrapper.Mutable = FakeBundleWrapper()
+        val bundleWrapperSave: BundleWrapper.Save = bundleWrapper
+        val bundleWrapperRestore: BundleWrapper.Restore = bundleWrapper
+
+        viewModel.save(bundle = bundleWrapperSave)
+
+        init()
+
+        viewModel.restore(bundle = bundleWrapperRestore)
+        listLiveDataWrapper.checkListSame(listOf("first", "second"))
+    }
+}
+
+private interface FakeListLiveDataWrapper : ListLiveDataWrapper {
+
+    fun checkListSame(expected: List<CharSequence>)
+
+    class Base : FakeListLiveDataWrapper {
+
+        private val list = ArrayList<CharSequence>()
+
+        override fun checkListSame(expected: List<CharSequence>) {
+            assertEquals(expected, list)
+        }
+
+        override fun liveData(): LiveData<List<CharSequence>> {
+            throw IllegalStateException("not used here")
+        }
+
+        override fun add(new: CharSequence) {
+            list.add(new)
+        }
+
+        override fun save(bundle: BundleWrapper.Save) {
+            bundle.save(list)
+        }
+
+        override fun update(list: List<CharSequence>) {
+            this.list.addAll(list)
+        }
+    }
+}
+
+class FakeBundleWrapper : BundleWrapper.Mutable {
+
+    private val cache = ArrayList<CharSequence>()
+
+    override fun save(list: ArrayList<CharSequence>) {
+        cache.addAll(list)
+    }
+
+    override fun restore(): List<CharSequence> {
+        return cache
     }
 }
