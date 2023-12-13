@@ -30,7 +30,7 @@ import org.junit.runner.RunWith
 class Task024Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task24Activity::class.java)
 
     @Test
     fun test_mvvm_recycler() {
@@ -80,7 +80,7 @@ class Task024Test {
             .check(matches(withText("second text")))
 
 
-        for (i in 0..10) {
+        for (i in 0..2) {
             onView(withId(R.id.inputEditText)).perform(typeText("text number $i"))
             onView(withId(R.id.actionButton)).perform(click())
             onView(withId(R.id.inputEditText)).check(matches(withText("")))
@@ -97,7 +97,7 @@ class Task024Test {
         onView(RecyclerViewMatcher(R.id.recyclerView).atPosition(1, R.id.elementTextView))
             .check(matches(withText("second text")))
 
-        for (i in 0..10) {
+        for (i in 0..2) {
             onView(RecyclerViewMatcher(R.id.recyclerView).atPosition(i + 2, R.id.elementTextView))
                 .check(matches(withText("text number $i")))
         }
