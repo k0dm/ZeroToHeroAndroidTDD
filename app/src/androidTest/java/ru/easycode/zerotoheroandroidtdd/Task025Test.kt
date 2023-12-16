@@ -7,7 +7,9 @@ import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.easycode.zerotoheroandroidtdd.main.MainActivity
+import ru.easycode.zerotoheroandroidtdd.task25.CreatePage
+import ru.easycode.zerotoheroandroidtdd.task25.ListPage
+import ru.easycode.zerotoheroandroidtdd.task25.main.Task25Activity
 
 /**
  * Instructions to go through this task:
@@ -44,7 +46,7 @@ import ru.easycode.zerotoheroandroidtdd.main.MainActivity
 class Task025Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task25Activity::class.java)
 
     @Test
     fun test_navigate_to_create_screen() {

@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd.core
+package ru.easycode.zerotoheroandroidtdd.task25.core
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

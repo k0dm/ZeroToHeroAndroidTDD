@@ -1,8 +1,9 @@
-package ru.easycode.zerotoheroandroidtdd.main
+package ru.easycode.zerotoheroandroidtdd.task25.main
 
 import org.junit.Before
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.list.ListScreen
+import ru.easycode.zerotoheroandroidtdd.task25.core.Navigation
+import ru.easycode.zerotoheroandroidtdd.task25.list.ListScreen
 
 class MainViewModelTest {
 

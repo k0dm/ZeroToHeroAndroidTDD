@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd.main
+package ru.easycode.zerotoheroandroidtdd
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

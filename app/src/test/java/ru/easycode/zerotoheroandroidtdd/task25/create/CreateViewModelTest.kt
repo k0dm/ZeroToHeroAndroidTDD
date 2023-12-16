@@ -1,15 +1,15 @@
-package ru.easycode.zerotoheroandroidtdd.create
+package ru.easycode.zerotoheroandroidtdd.task25.create
 
 import androidx.lifecycle.ViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.core.ClearViewModel
-import ru.easycode.zerotoheroandroidtdd.list.FakeListLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.list.ListLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.main.FakeNavigation
-import ru.easycode.zerotoheroandroidtdd.main.Navigation
-import ru.easycode.zerotoheroandroidtdd.main.Screen
+import ru.easycode.zerotoheroandroidtdd.task25.core.ClearViewModel
+import ru.easycode.zerotoheroandroidtdd.task25.core.Navigation
+import ru.easycode.zerotoheroandroidtdd.task25.list.FakeListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task25.core.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task25.main.FakeNavigation
+import ru.easycode.zerotoheroandroidtdd.task25.main.Screen
 
 class CreateViewModelTest {
 

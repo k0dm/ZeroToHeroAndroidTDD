@@ -1,10 +1,12 @@
-package ru.easycode.zerotoheroandroidtdd.list
+package ru.easycode.zerotoheroandroidtdd.task25.list
 
 import org.junit.Before
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.create.CreateScreen
-import ru.easycode.zerotoheroandroidtdd.main.FakeNavigation
-import ru.easycode.zerotoheroandroidtdd.main.Navigation
+import ru.easycode.zerotoheroandroidtdd.task25.create.CreateScreen
+import ru.easycode.zerotoheroandroidtdd.task25.core.BundleWrapper
+import ru.easycode.zerotoheroandroidtdd.task25.core.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task25.main.FakeNavigation
+import ru.easycode.zerotoheroandroidtdd.task25.core.Navigation
 
 class ListViewModelTest {
 

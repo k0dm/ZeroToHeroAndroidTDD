@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd.core
+package ru.easycode.zerotoheroandroidtdd.task25.core
 
 import androidx.lifecycle.ViewModel
 import org.junit.Assert.assertEquals
@@ -103,7 +103,6 @@ class ViewModelFactoryTest {
 }
 
 private interface FakeProvideViewModel : ProvideViewModel {
-
     fun checkCalled(expected: List<Class<out ViewModel>>)
 
     class Base : FakeProvideViewModel {

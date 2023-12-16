@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task25
 
 import android.widget.FrameLayout
 import androidx.test.espresso.Espresso.onView

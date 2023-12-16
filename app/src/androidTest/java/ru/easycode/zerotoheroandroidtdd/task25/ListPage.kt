@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task25
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -9,6 +9,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.hamcrest.Matchers.allOf
+import ru.easycode.zerotoheroandroidtdd.R
+import ru.easycode.zerotoheroandroidtdd.RecyclerViewMatcher
 
 class ListPage : AbstractPage(R.id.listFrameLayout) {
 
