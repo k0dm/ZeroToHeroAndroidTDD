@@ -1,9 +1,12 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task26
 
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task26.core.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task26.main.MainViewModel
+import ru.easycode.zerotoheroandroidtdd.task26.main.Repository
 
 class MainViewModelTest {
 
@@ -59,7 +62,7 @@ private interface FakeRepository : Repository.Read {
             this.list.addAll(list)
         }
 
-        override fun list(): List<String> {
+        override suspend fun list(): List<String> {
             return list
         }
     }

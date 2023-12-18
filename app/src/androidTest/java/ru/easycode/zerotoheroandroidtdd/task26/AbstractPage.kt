@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task26
 
 import android.view.ViewGroup
 import android.widget.LinearLayout

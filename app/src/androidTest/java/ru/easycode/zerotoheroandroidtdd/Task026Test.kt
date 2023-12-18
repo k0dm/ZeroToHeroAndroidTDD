@@ -6,12 +6,15 @@ import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.task26.AddPage
+import ru.easycode.zerotoheroandroidtdd.task26.MainPage
+import ru.easycode.zerotoheroandroidtdd.task26.main.Task26Activity
 
 @RunWith(AndroidJUnit4::class)
 class Task026Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task26Activity::class.java)
 
     @Test
     fun test_add() {

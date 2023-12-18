@@ -1,9 +1,13 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task26
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task26.add.AddViewModel
+import ru.easycode.zerotoheroandroidtdd.task26.core.ClearViewModel
+import ru.easycode.zerotoheroandroidtdd.task26.core.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task26.main.Repository
 
 class AddViewModelTest {
 
@@ -117,7 +121,7 @@ private interface FakeAddRepository : Repository.Add {
             assertEquals(expected, actual)
         }
 
-        override fun add(value: String) {
+        override suspend fun add(value: String) {
             order.add(REPOSITORY_ADD)
             actual = value
         }

@@ -1,14 +1,18 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task26
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.task26.main.data.ItemCache
+import ru.easycode.zerotoheroandroidtdd.task26.main.data.ItemsDao
+import ru.easycode.zerotoheroandroidtdd.task26.main.data.ItemsDataBase
 import java.io.IOException
 
 /**
@@ -36,7 +40,7 @@ class RoomTest {
     }
 
     @Test
-    fun test() {
+    fun test() = runBlocking{
         assertEquals(emptyList<ItemCache>(), dao.list())
 
         val cache = ItemCache(id = 1L, text = "first")

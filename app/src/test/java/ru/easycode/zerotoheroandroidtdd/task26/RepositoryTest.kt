@@ -1,12 +1,17 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task26
 
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task26.core.Now
+import ru.easycode.zerotoheroandroidtdd.task26.main.Repository
+import ru.easycode.zerotoheroandroidtdd.task26.main.data.ItemCache
+import ru.easycode.zerotoheroandroidtdd.task26.main.data.ItemsDao
 
 class RepositoryTest {
 
     @Test
-    fun test() {
+    fun test() = runBlocking {
         val now = FakeNow.Base(7777L)
         val dataSource = FakeDataSource.Base()
         val repository: Repository.Mutable = Repository.Base(dataSource = dataSource, now = now)
