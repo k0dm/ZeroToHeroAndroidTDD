@@ -1,9 +1,13 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.FakeClearViewModel.Companion.CLEAR
+import ru.easycode.zerotoheroandroidtdd.task27.FakeClearViewModel.Companion.CLEAR
+import ru.easycode.zerotoheroandroidtdd.task27.add.AddViewModel
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.Repository
+import ru.easycode.zerotoheroandroidtdd.task27.core.ListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task27.main.ItemUi
 
 class AddViewModelTest {
 

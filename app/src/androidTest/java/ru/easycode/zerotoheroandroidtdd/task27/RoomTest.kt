@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import android.content.Context
 import androidx.room.Room
@@ -9,6 +9,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.ItemCache
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.ItemsDao
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.ItemsDataBase
 import java.io.IOException
 
 /**

@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import android.widget.Button
 import android.widget.TextView
@@ -10,6 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
+import ru.easycode.zerotoheroandroidtdd.R
 
 class DeletePage : AbstractPage(R.id.deleteLayout) {
 

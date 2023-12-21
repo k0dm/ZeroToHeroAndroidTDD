@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import android.widget.Button
 import androidx.test.espresso.Espresso.onView
@@ -11,6 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.google.android.material.textfield.TextInputEditText
 import org.hamcrest.Matchers.allOf
+import ru.easycode.zerotoheroandroidtdd.R
 
 class AddPage : AbstractPage(R.id.addLayout) {
 

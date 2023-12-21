@@ -1,7 +1,11 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import kotlinx.coroutines.Dispatchers
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.Repository
+import ru.easycode.zerotoheroandroidtdd.task27.core.Item
+import ru.easycode.zerotoheroandroidtdd.task27.main.ItemUi
+import ru.easycode.zerotoheroandroidtdd.task27.main.MainViewModel
 
 class MainViewModelTest {
 

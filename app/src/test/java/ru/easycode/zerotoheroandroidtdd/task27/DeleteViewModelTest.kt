@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task27
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.Dispatchers
@@ -6,9 +6,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.FakeClearViewModel.Companion.CLEAR
-import ru.easycode.zerotoheroandroidtdd.FakeListLiveDataWrapper.Companion.LIVE_DATA_DELETE
-import ru.easycode.zerotoheroandroidtdd.FakeRepositoryDelete.Companion.REPOSITORY_DELETE
+import ru.easycode.zerotoheroandroidtdd.task27.FakeClearViewModel.Companion.CLEAR
+import ru.easycode.zerotoheroandroidtdd.task27.FakeListLiveDataWrapper.Companion.LIVE_DATA_DELETE
+import ru.easycode.zerotoheroandroidtdd.task27.FakeRepositoryDelete.Companion.REPOSITORY_DELETE
+import ru.easycode.zerotoheroandroidtdd.task27.core.Item
+import ru.easycode.zerotoheroandroidtdd.task27.add.data.Repository
+import ru.easycode.zerotoheroandroidtdd.task27.delete.DeleteViewModel
+import ru.easycode.zerotoheroandroidtdd.task27.main.ItemUi
 
 class DeleteViewModelTest {
 
