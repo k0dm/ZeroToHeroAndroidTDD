@@ -41,28 +41,28 @@ Then just checkout branches, solve the tasks, run ui tests and unit tests to che
 
 **task/017-mvvm-process-recrerat solvede** solution on YouTube https://www.youtube.com/watch?v=qywpyz7k1TY
 
-task/018-clouddatasource soluton on YouTube https://youtu.be/0ru42NoOF8o
+**task/018-clouddatasource solved** solution on YouTube https://youtu.be/0ru42NoOF8o
 
-task/019-no-connection soluton on YouTube https://youtu.be/DItO3AnD8pI
+**task/019-no-connection solved** solution on YouTube https://youtu.be/DItO3AnD8pI
 
 <b>Season 2: Navigation, Room</b>
 
-task/020-input soluton on YouTube https://youtu.be/7rRF6WB6Q5w
+**task/020-input solved** solution on YouTube https://youtu.be/7rRF6WB6Q5w
 
-task/021-watch-input soluton on YouTube https://youtu.be/nCjJ-oUWFj8
+**task/021-watch-input solved** solution on YouTube https://youtu.be/nCjJ-oUWFj8
 
-task/022-list soluton on YouTube https://youtu.be/IY4_LycCNvY
+**task/022-list solved** solution on YouTube https://youtu.be/IY4_LycCNvY
 
-task/023-recycler soluton on YouTube https://youtu.be/0QOackU05SQ
+**task/023-recycler solved** solution on YouTube https://youtu.be/0QOackU05SQ
 
-task/024-mvvm-recycler soluton on YouTube https://youtu.be/rva0YlnzsK4
+**task/024-mvvm-recycler solved** solution on YouTube https://youtu.be/rva0YlnzsK4
 
-task/025-navigation soluton on YouTube https://youtu.be/fsimJIE-pME https://youtu.be/mnl5eVI_iuA https://youtu.be/fmnIkZHdbWA
+**task/025-navigation solved** solution on YouTube https://youtu.be/fsimJIE-pME https://youtu.be/mnl5eVI_iuA https://youtu.be/fmnIkZHdbWA
 
-task/026-room soluton on YouTube https://youtu.be/hG-RhUfU98s
+**task/026-room solved** solution on YouTube https://youtu.be/hG-RhUfU98s
 
-task/027-room-delete soluton on YouTube https://youtu.be/eecz8Xy6xj0
+**task/027-room-delete solved** solution on YouTube https://youtu.be/eecz8Xy6xj0
 
-task/028-room-crud soluton on YouTube https://youtu.be/EBE2ZWybj34
+task/028-room-crud solution on YouTube https://youtu.be/EBE2ZWybj34
 
-task/029-room-one-to-many soluton on YouTube https://youtu.be/HM8Oqx73vhE
+task/029-room-one-to-many solution on YouTube https://youtu.be/HM8Oqx73vhE
