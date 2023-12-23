@@ -1,8 +1,13 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task28
 
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import ru.easycode.zerotoheroandroidtdd.task28.core.Now
+import ru.easycode.zerotoheroandroidtdd.task28.main.Item
+import ru.easycode.zerotoheroandroidtdd.task28.data.ItemCache
+import ru.easycode.zerotoheroandroidtdd.task28.data.ItemsDao
+import ru.easycode.zerotoheroandroidtdd.task28.data.Repository
 
 class RepositoryTest {
 

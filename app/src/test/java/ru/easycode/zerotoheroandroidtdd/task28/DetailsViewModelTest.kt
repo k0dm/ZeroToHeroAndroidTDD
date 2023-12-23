@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task28
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.Dispatchers
@@ -6,11 +6,15 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import ru.easycode.zerotoheroandroidtdd.FakeClearViewModel.Companion.CLEAR
-import ru.easycode.zerotoheroandroidtdd.FakeListLiveDataWrapper.Companion.LIVE_DATA_DELETE
-import ru.easycode.zerotoheroandroidtdd.FakeListLiveDataWrapper.Companion.LIVE_DATA_UPDATE
-import ru.easycode.zerotoheroandroidtdd.FakeRepositoryChange.Companion.REPOSITORY_DELETE
-import ru.easycode.zerotoheroandroidtdd.FakeRepositoryChange.Companion.REPOSITORY_UPDATE
+import ru.easycode.zerotoheroandroidtdd.task28.FakeClearViewModel.Companion.CLEAR
+import ru.easycode.zerotoheroandroidtdd.task28.FakeListLiveDataWrapper.Companion.LIVE_DATA_DELETE
+import ru.easycode.zerotoheroandroidtdd.task28.FakeListLiveDataWrapper.Companion.LIVE_DATA_UPDATE
+import ru.easycode.zerotoheroandroidtdd.task28.FakeRepositoryChange.Companion.REPOSITORY_DELETE
+import ru.easycode.zerotoheroandroidtdd.task28.FakeRepositoryChange.Companion.REPOSITORY_UPDATE
+import ru.easycode.zerotoheroandroidtdd.task28.details.DetailsViewModel
+import ru.easycode.zerotoheroandroidtdd.task28.data.Repository
+import ru.easycode.zerotoheroandroidtdd.task28.main.Item
+import ru.easycode.zerotoheroandroidtdd.task28.main.ItemUi
 
 class DetailsViewModelTest {
 

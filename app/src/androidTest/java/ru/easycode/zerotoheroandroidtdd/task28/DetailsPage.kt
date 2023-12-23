@@ -1,4 +1,4 @@
-package ru.easycode.zerotoheroandroidtdd
+package ru.easycode.zerotoheroandroidtdd.task28
 
 import android.widget.Button
 import android.widget.TextView
@@ -13,6 +13,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withParent
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.google.android.material.textfield.TextInputEditText
 import org.hamcrest.Matchers.allOf
+import ru.easycode.zerotoheroandroidtdd.R
 
 class DetailsPage : AbstractPage(R.id.detailsLayout) {
 

@@ -7,12 +7,17 @@ import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import ru.easycode.zerotoheroandroidtdd.databinding.ActivityTask28Binding
+import ru.easycode.zerotoheroandroidtdd.task28.AddPage
+import ru.easycode.zerotoheroandroidtdd.task28.DetailsPage
+import ru.easycode.zerotoheroandroidtdd.task28.MainPage
+import ru.easycode.zerotoheroandroidtdd.task28.main.Task28Activity
 
 @RunWith(AndroidJUnit4::class)
 class Task028Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task28Activity::class.java)
 
     private val mainPage = MainPage()
     private val addPage = AddPage()
