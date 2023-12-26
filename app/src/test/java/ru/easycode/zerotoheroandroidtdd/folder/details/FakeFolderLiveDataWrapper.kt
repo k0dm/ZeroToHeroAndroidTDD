@@ -1,9 +1,10 @@
 package ru.easycode.zerotoheroandroidtdd.folder.details
 
+import androidx.lifecycle.LiveData
 import org.junit.Assert.assertEquals
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.core.FolderLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.folder.list.FolderUi
+import ru.easycode.zerotoheroandroidtdd.task29.folder.core.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FolderUi
 
 interface FakeFolderLiveDataWrapper : FolderLiveDataWrapper.Mutable {
 
@@ -23,7 +24,15 @@ interface FakeFolderLiveDataWrapper : FolderLiveDataWrapper.Mutable {
         }
 
         override fun folderId(): Long {
-            return actual.id
+            return actual.id()
+        }
+
+        override fun folderName(): String {
+            return ""
+        }
+
+        override fun folderLiveData(): LiveData<FolderUi> {
+            throw IllegalStateException("don't use in unit test")
         }
     }
 }

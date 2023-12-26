@@ -1,5 +1,6 @@
 package ru.easycode.zerotoheroandroidtdd.folder.details
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -9,13 +10,16 @@ import ru.easycode.zerotoheroandroidtdd.core.FakeClear.Companion.CLEAR
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.edit.EditFolderScreen
-import ru.easycode.zerotoheroandroidtdd.folder.list.FolderUi
-import ru.easycode.zerotoheroandroidtdd.folder.list.FoldersListScreen
-import ru.easycode.zerotoheroandroidtdd.note.core.MyNote
-import ru.easycode.zerotoheroandroidtdd.note.core.NotesRepository
-import ru.easycode.zerotoheroandroidtdd.note.create.CreateNoteScreen
-import ru.easycode.zerotoheroandroidtdd.note.edit.EditNoteScreen
+import ru.easycode.zerotoheroandroidtdd.task29.folder.edit.EditFolderScreen
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FolderUi
+import ru.easycode.zerotoheroandroidtdd.task29.note.create.CreateNoteScreen
+import ru.easycode.zerotoheroandroidtdd.task29.note.edit.EditNoteScreen
+import ru.easycode.zerotoheroandroidtdd.task29.folder.details.FolderDetailsViewModel
+import ru.easycode.zerotoheroandroidtdd.task29.folder.details.NoteListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FoldersListScreen
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.MyNote
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.NoteUi
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.NotesRepository
 
 class FolderDetailsViewModelTest {
 
@@ -88,7 +92,7 @@ class FolderDetailsViewModelTest {
     fun test_edit_folder() {
         folderLiveDataWrapper.update(FolderUi(id = 9L, "folder title", 0))
         viewModel.editFolder()
-        navigation.checkScreen(EditFolderScreen(folderId = 9L))
+        navigation.checkScreen(EditFolderScreen(folderId = 9L, "folder"))
         order.check(listOf(UPDATE_FOLDER_LIVEDATA, NAVIGATE))
     }
 
@@ -145,6 +149,10 @@ private interface FakeNoteListLiveDataWrapper : NoteListLiveDataWrapper.UpdateLi
             actual.clear()
             actual.addAll(notes)
             order.add(UPDATE_NOTES_LIVEDATA)
+        }
+
+        override fun noteListLiveData(): LiveData<List<NoteUi>> {
+            throw IllegalStateException("Don't use in Unit Test")
         }
 
         override fun check(expected: List<NoteUi>) {

@@ -9,12 +9,13 @@ import ru.easycode.zerotoheroandroidtdd.core.FakeClear.Companion.CLEAR
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.core.FoldersRepository
-import ru.easycode.zerotoheroandroidtdd.folder.list.FolderListLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.folder.list.FolderUi
-import ru.easycode.zerotoheroandroidtdd.folder.list.FoldersListScreen
+import ru.easycode.zerotoheroandroidtdd.task29.folder.core.FoldersRepository
+import ru.easycode.zerotoheroandroidtdd.task29.folder.create.CreateFolderViewModel
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FolderListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FolderUi
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FoldersListScreen
 
-class CreateFolderViewModelTest {
+class CreateViewModelTest {
 
     private lateinit var order: Order
     private lateinit var liveDataWrapper: FakeAddLiveDataWrapper

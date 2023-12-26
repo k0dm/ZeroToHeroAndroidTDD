@@ -7,13 +7,13 @@ import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.easycode.zerotoheroandroidtdd.main.MainActivity
+import ru.easycode.zerotoheroandroidtdd.task29.main.Task29Activity
 
 @RunWith(AndroidJUnit4::class)
 class Task029Test {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(Task29Activity::class.java)
 
     @Test
     fun create_folder_create_note() {

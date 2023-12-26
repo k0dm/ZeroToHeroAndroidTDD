@@ -1,21 +1,25 @@
 package ru.easycode.zerotoheroandroidtdd.note.edit
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.Dispatchers
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.w3c.dom.Text
 import ru.easycode.zerotoheroandroidtdd.core.FakeClear
 import ru.easycode.zerotoheroandroidtdd.core.FakeClear.Companion.CLEAR
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation.Companion.NAVIGATE
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.core.FolderLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.folder.details.FolderDetailsScreen
-import ru.easycode.zerotoheroandroidtdd.folder.details.NoteListLiveDataWrapper
-import ru.easycode.zerotoheroandroidtdd.note.core.MyNote
-import ru.easycode.zerotoheroandroidtdd.note.core.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.task29.folder.core.FolderLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.folder.details.NoteListLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.folder.details.FolderDetailsScreen
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.MyNote
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.NoteLiveDataWrapper
+import ru.easycode.zerotoheroandroidtdd.task29.note.core.NotesRepository
+import ru.easycode.zerotoheroandroidtdd.task29.note.edit.EditNoteViewModel
 
-class EditNoteViewModelTest {
+class EditMyNoteViewModelTest {
 
     private lateinit var order: Order
     private lateinit var repository: FakeEditNoteRepository
@@ -94,7 +98,7 @@ private const val REPOSITORY_RENAME = "NotesRepository.Edit#RENAME"
 private const val REPOSITORY_NOTE = "NotesRepository.Edit#note"
 private const val NOTES_LIVE_DATA_UPDATE = "NoteListLiveDataWrapper.Update#update"
 
-private interface FakeNoteLiveDataWrapper : NoteLiveDataWrapper {
+private interface FakeNoteLiveDataWrapper : NoteLiveDataWrapper.ReadAndUpdate {
 
     fun check(expected: String)
 
@@ -109,6 +113,10 @@ private interface FakeNoteLiveDataWrapper : NoteLiveDataWrapper {
         override fun update(noteText: String) {
             actual = noteText
             order.add(NOTE_LIVE_DATA)
+        }
+
+        override fun noteTextLiveData(): LiveData<String> {
+            throw IllegalStateException("Don't use in Unit test")
         }
     }
 }

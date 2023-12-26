@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/createFolderRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/createFolderTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_400"
+        android:text="Input folder name"
+        android:textAlignment="center"
+        android:textSize="36sp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/createFolderEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/saveFolderButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_400"
+        android:text="save"
+        android:textColor="@color/black" />
+
+</LinearLayout>

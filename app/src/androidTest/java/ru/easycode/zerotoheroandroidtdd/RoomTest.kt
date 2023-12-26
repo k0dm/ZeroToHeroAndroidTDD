@@ -10,11 +10,11 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import ru.easycode.zerotoheroandroidtdd.core.AppDataBase
-import ru.easycode.zerotoheroandroidtdd.core.FolderCache
-import ru.easycode.zerotoheroandroidtdd.core.FoldersDao
-import ru.easycode.zerotoheroandroidtdd.core.NoteCache
-import ru.easycode.zerotoheroandroidtdd.core.NotesDao
+import ru.easycode.zerotoheroandroidtdd.task29.core.AppDataBase
+import ru.easycode.zerotoheroandroidtdd.task29.core.FolderCache
+import ru.easycode.zerotoheroandroidtdd.task29.core.FoldersDao
+import ru.easycode.zerotoheroandroidtdd.task29.core.NoteCache
+import ru.easycode.zerotoheroandroidtdd.task29.core.NotesDao
 import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
@@ -65,6 +65,10 @@ class RoomTest {
 
     @Test
     fun test_notes() = runBlocking {
+        // Insert folders with IDs 10L and 11L
+        foldersDao.insert(FolderCache(id = 10L, text = "Folder 10"))
+        foldersDao.insert(FolderCache(id = 11L, text = "Folder 11"))
+
         notesDao.insert(note = NoteCache(id = 1L, text = "first note", folderId = 10L))
         notesDao.insert(note = NoteCache(id = 2L, text = "second note", folderId = 11L))
         notesDao.insert(note = NoteCache(id = 3L, text = "third note", folderId = 10L))

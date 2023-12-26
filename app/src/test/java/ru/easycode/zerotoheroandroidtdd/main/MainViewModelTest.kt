@@ -3,7 +3,8 @@ package ru.easycode.zerotoheroandroidtdd.main
 import org.junit.Test
 import ru.easycode.zerotoheroandroidtdd.core.FakeNavigation
 import ru.easycode.zerotoheroandroidtdd.core.Order
-import ru.easycode.zerotoheroandroidtdd.folder.list.FoldersListScreen
+import ru.easycode.zerotoheroandroidtdd.task29.folder.list.FoldersListScreen
+import ru.easycode.zerotoheroandroidtdd.task29.main.MainViewModel
 
 class MainViewModelTest {
 
